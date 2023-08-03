@@ -1,0 +1,66 @@
+import tkinter as tk
+from tkinter import ttk
+
+# Diccionario de tasas de conversión (USD a otras divisas)
+tasas_conversion = {
+    'USD': 1.0,
+    'EUR': 0.85,
+    'GBP': 0.73,
+    'JPY': 110.29,
+    'CAD': 1.25
+}
+
+def convertir_divisas():
+    cantidad = float(cantidad_var.get())
+    divisa_origen = divisa_origen_var.get()
+    divisa_destino = divisa_destino_var.get()
+    
+    tasa_origen = tasas_conversion[divisa_origen]
+    tasa_destino = tasas_conversion[divisa_destino]
+    
+    resultado = cantidad * (tasa_destino / tasa_origen)
+    resultado_var.set(round(resultado, 2))
+
+# Crear ventana
+ventana = tk.Tk()
+ventana.title("Convertidor de Divisas")
+ventana.geometry("300x200")
+ventana.configure(bg="gray10")
+
+# Variables
+cantidad_var = tk.DoubleVar()
+divisa_origen_var = tk.StringVar()
+divisa_destino_var = tk.StringVar()
+resultado_var = tk.DoubleVar()
+
+# Etiquetas
+etiqueta_titulo = tk.Label(ventana, text="Convertidor de Divisas", font=("Helvetica", 16), fg="white", bg="gray10")
+etiqueta_titulo.pack(pady=10)
+
+etiqueta_cantidad = tk.Label(ventana, text="Cantidad:", fg="white", bg="gray10")
+etiqueta_cantidad.pack(pady=5)
+
+etiqueta_resultado = tk.Label(ventana, text="Resultado:", fg="white", bg="gray10")
+etiqueta_resultado.pack(pady=5)
+
+# Entrys
+entry_cantidad = ttk.Entry(ventana, textvariable=cantidad_var, justify="center")
+entry_cantidad.pack(pady=5)
+
+entry_resultado = ttk.Entry(ventana, textvariable=resultado_var, justify="center", state="readonly")
+entry_resultado.pack(pady=5)
+
+# Combobox
+divisas = list(tasas_conversion.keys())
+combobox_origen = ttk.Combobox(ventana, values=divisas, textvariable=divisa_origen_var, state="readonly")
+combobox_origen.pack(pady=5)
+
+combobox_destino = ttk.Combobox(ventana, values=divisas, textvariable=divisa_destino_var, state="readonly")
+combobox_destino.pack(pady=5)
+
+# Botón
+boton_convertir = ttk.Button(ventana, text="Convertir", command=convertir_divisas)
+boton_convertir.pack(pady=10)
+
+# Ejecutar la ventana
+ventana.mainloop()
