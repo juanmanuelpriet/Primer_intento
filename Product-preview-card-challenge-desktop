@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Perfumes Online</title>
+<style>
+  body {
+    font-family: "AvantGardeMedium", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+    background-color: #001f3f; /* Fondo azul */
+    color: #fff; /* Color de texto blanco */
+  }
+  .background-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.pinimg.com/564x/80/9d/95/809d952089888bcffa49d07a53bface9.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.1; 
+    z-index: -1;
+  }
+  .author-container {
+    text-align: center;
+    font-size: 9px;
+    margin-top: 3px;
+  }
+  .content-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 70px;
+    position: relative;
+  }
+  .description-container {
+    flex: 1;
+    padding: 20px;
+  }
+  .description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #001f3f;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .prices {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .original-price {
+    text-decoration: line-through;
+    color: #777;
+    margin-right: 10px;
+  }
+  .discounted-price {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px;
+  }
+  .image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+  }
+  .button {
+    padding: 10px 20px;
+    background-color: #001f3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button:hover {
+    background-color: #000;
+  }
+</style>
+<script>
+  function changeButtonColor() {
+    var button = document.querySelector('.button');
+    button.style.backgroundColor = '#e74c3c';
+  }
+</script>
+</head>
+<body>
+  <div class="background-logo"></div>
+  <div class="author-container">
+    Autor del ejercicio <a href="https://co.pinterest.com/pin/356206651751075361/" target="_blank">Juan Manuel Prieto Corredor</a>.
+  </div>
+  <div class="content-container">
+    <div class="image-container">
+      <img class="image" src="https://i.pinimg.com/564x/c5/81/d2/c581d2ea8810a4d7bd58a4a4a9b42650.jpg" alt="Imagen Bleu de chanel">
+    </div>
+    <div class="description-container">
+      <div class="description">
+        <strong>El elogio a la libertad masculina en un aromático amaderado de estela cautivadora. Un perfume atemporal e inconformista, en un frasco de un azul enigmático.</strong>
+      </div>
+      <div class="prices">
+        <span class="original-price">150 €</span>
+        <span class="discounted-price">120 €</span>
+      </div>
+      <button class="button" onclick="changeButtonColor()">🛒 Comprar</button>
+    </div>
+  </div>
+</body>
+</html>
